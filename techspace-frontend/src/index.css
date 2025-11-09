@@ -28,6 +28,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  padding-top: 80px; /* 为固定导航栏添加顶部间距，避免内容被遮挡 */
 }
 
 h1 {
