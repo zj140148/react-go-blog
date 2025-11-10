@@ -1,19 +1,27 @@
-import React from 'react';
-
+import React, { useEffect, useState } from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import styles from './About.module.css';
+import PageContainer from '../../components/PageContainer/PageContainer.jsx';
+import PageTitle from '../../components/PageTitle/PageTitle.jsx';
 function About() {
+  const [mdContent, setMdContent] = useState('');
+
+  useEffect(() => {
+    fetch('http://localhost:5000/api/about-md') // 后端接口
+      .then(res => res.text())
+      .then(text => setMdContent(text))
+      .catch(err => console.error('Failed to fetch markdown:', err));
+  }, []);
+
   return (
-    <div className="about">
-      <h1>关于我</h1>
-      <div className="about-content">
-        <p>我是一名正在学习全栈开发的技术爱好者</p>
-        <p>这个博客记录了我的学习历程和技术分享</p>
-        <h3>技术栈</h3>
-        <ul>
-          <li>前端：React, JavaScript, HTML, CSS</li>
-          <li>后端：Go, Gin框架</li>
-          <li>数据库：MySQL/SQLite</li>
-        </ul>
-      </div>
+    <div className={styles.about}>
+      <PageContainer>
+        <PageTitle>关于我</PageTitle>
+        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+          {mdContent || '加载中...'}
+        </ReactMarkdown>
+      </PageContainer>
     </div>
   );
 }

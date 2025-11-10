@@ -1,37 +1,42 @@
 import React from 'react';
 import styles from './Home.module.css';
+import PageContainer from '../../components/PageContainer/PageContainer.jsx';
+import PageTitle from '../../components/PageTitle/PageTitle.jsx';
+import Body from '../../components/Body/Body.jsx';
+import Card from '../../components/Card/Card.jsx';
+
 function Home() {
   return (
-    <div className={styles.home}>
-      <div className={styles.pageContainer}>
-        <h1 className={styles.pageTitle}>欢迎来到我的技术博客</h1>
+    <Body>
+      <PageContainer>
+        <PageTitle>欢迎来到我的技术博客</PageTitle>
         <p className={styles.pageSubtitle}>
           这里记录了我的技术学习历程、项目经验和心得体会。
           希望通过这个平台与大家分享知识，共同进步。
         </p>
-        
+
         <div className={styles.grid}>
-          <div className={styles.card}>
-            <h3 className={styles.cardTitle}>最新文章</h3>
-            <div className={styles.cardContent}>
-              <p>React Hooks 最佳实践</p>
-              <p>Go 语言并发编程</p>
-              <p>现代 CSS 布局技巧</p>
-            </div>
-          </div>
-          
-          <div className={styles.card}>
-            <h3 className={styles.cardTitle}>技术栈</h3>
-            <div className={styles.cardContent}>
-              <p>前端：React, TypeScript, Tailwind CSS</p>
-              <p>后端：Go, Gin, MySQL</p>
-              <p>工具：Git, Docker, Vite</p>
-            </div>
-          </div>
+          <Card
+            title="最新文章"
+            items={[
+              "React Hooks 最佳实践",
+              "Go 语言并发编程",
+              "现代 CSS 布局技巧"
+            ]}
+          />
+
+          <Card
+            title="技术栈"
+            items={[
+              "前端：React, TypeScript, Tailwind CSS",
+              "后端：Go, Gin, MySQL",
+              "工具：Git, Docker, Vite"
+            ]}
+          />
         </div>
 
-        
-        
+
+
         <div className={styles.buttonContainer}>
           <a href="/blog" className={styles.primaryButton}>
             查看全部文章
@@ -39,8 +44,9 @@ function Home() {
         </div>
         {/* 插入空白测试 */}
         <div className={styles.spacer}></div>
-      </div>
-    </div>
+
+      </PageContainer>
+    </Body>
   );
 }
 

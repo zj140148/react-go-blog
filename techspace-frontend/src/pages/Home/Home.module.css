@@ -4,36 +4,17 @@
 /* Home 页面专属样式 - 浅色主题 */
 
 /* 页面容器 - 确保居中 */
-.home {
-  padding: 2rem 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;     /* 水平居中 */
-  justify-content: flex-start; /* 垂直方向靠上对齐 */
-  background-color: #ffffff;
-  min-height: calc(100vh - 80px); /* 减去导航栏高度 */
-  box-sizing: border-box;
-}
+
 
 /* 内容容器 - 水平居中 */
-.pageContainer {
-  background: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  padding: 3rem;
-  margin: 0 auto;           /* 关键：水平居中 */
-  width: 100%;
-  max-width: 80%;
-  border: 1px solid #e5e7eb;
-  box-sizing: border-box;
-}
+
 
 /* 页面标题 */
 .pageTitle {
-  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  font-size: 3rem;
   font-weight: 700;
-  color: #111827;
+  color: #ffffff;
   margin-bottom: 1.5rem;
   text-align: center;       /* 标题居中 */
 }
@@ -41,7 +22,7 @@
 /* 页面副标题 - 文字左对齐，但整体居中 */
 .pageSubtitle {
   font-size: 1.25rem;
-  color: #4b5563;
+  color: #ffffff;
   margin-bottom: 3rem;
   line-height: 1.8;
   text-align: left;         /* 文字左对齐 */
@@ -56,42 +37,12 @@
   gap: 2rem;
   width: 100%;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  box-sizing: border-box;
 }
 
 /* 卡片组件 */
-.card {
-  background: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  padding: 2rem;
-  margin-bottom: 1.5rem;
-  border: 1px solid #e5e7eb;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  text-align: left;         /* 卡片内文字左对齐 */
-}
 
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-}
 
-/* 卡片标题 */
-.cardTitle {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #111827;
-  margin-bottom: 1rem;
-}
-
-/* 卡片内容 */
-.cardContent {
-  color: #4b5563;
-  line-height: 1.7;
-}
-
-.cardContent p {
-  margin-bottom: 0.5rem;
-}
 
 /* 按钮容器 */
 .buttonContainer {
@@ -112,13 +63,14 @@
   cursor: pointer;
   transition: all 0.2s ease;
   font-size: 1rem;
-  background-color: #3b82f6;
+  background-color: #2563eb;
   color: white;
 }
 
 .primaryButton:hover {
-  background-color: #2563eb;
-  transform: translateY(-1px);
+  background-color: #7ca8f0;
+  transform: translateY(0px);
+  color:white
 }
 
 /* 响应式设计 */
@@ -136,3 +88,25 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+
+
+/*
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px); //向下偏移10px 
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+*/
+/* 2️⃣ 应用到整个页面的内容 */
+/*  
+body * {
+  animation: slideUp 0.4s ease-out;
+} 
+*/

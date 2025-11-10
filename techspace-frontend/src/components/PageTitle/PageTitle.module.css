@@ -1,0 +1,8 @@
+.PageTitle {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  text-align: center;       /* 标题居中 */
+}
