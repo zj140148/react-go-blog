@@ -1,5 +1,5 @@
 .MdCard {
-  background: rgba(22, 54, 51, 0.7);
+  background: rgba(20, 53, 50, 0.85);
   border-radius: 16px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   padding: 2rem;
@@ -13,7 +13,6 @@
 }
 
 .MdCard:hover {
-  transform: translateY(-8px) scale(1.02);
-  background: rgba(22, 54, 51, 0.8);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(94, 234, 212, 0.3);
+  background: rgba(22, 54, 51, 0.9);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(94, 234, 212, 0.3);
 }

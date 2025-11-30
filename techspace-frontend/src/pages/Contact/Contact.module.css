@@ -1,0 +1,127 @@
+.contact {
+  padding: 2rem 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact form {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 2.5rem;
+  margin: 2rem auto;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  max-width: 500px;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.contact div {
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.contact input,
+.contact textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid rgba(148, 163, 184, 0.3);
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #334155;
+  background: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+  border-color: #5eead4;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 0 3px rgba(94, 234, 212, 0.2);
+  transform: translateY(-1px);
+}
+
+.contact input::placeholder,
+.contact textarea::placeholder {
+  color: #94a3b8;
+  font-style: italic;
+}
+
+.contact textarea {
+  resize: vertical;
+  min-height: 120px;
+  font-family: inherit;
+}
+
+.contact button[type="submit"] {
+  width: 100%;
+  padding: 0.875rem 2rem;
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  margin-top: 1rem;
+}
+
+.contact button[type="submit"]:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 0 6px 6px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #334155 0%, #475569 100%);
+}
+
+.contact button[type="submit"]:active {
+  transform: translateY(0) scale(1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .contact form {
+    padding: 2rem;
+    margin: 1rem;
+  }
+  
+  .contact input,
+  .contact textarea {
+    padding: 0.625rem 0.875rem;
+  }
+  
+  .contact button[type="submit"] {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact form {
+    padding: 1.5rem;
+    margin: 0.5rem;
+  }
+  
+  .label {
+    font-size: 0.9rem;
+  }
+  
+  .contact button[type="submit"] {
+    font-size: 0.95rem;
+  }
+}
