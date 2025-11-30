@@ -19,7 +19,7 @@
   -webkit-backdrop-filter: blur(10px);
 }
 
-.contact div {
+.formGroup {
   margin-bottom: 1.5rem;
 }
 
@@ -66,7 +66,7 @@
   font-family: inherit;
 }
 
-.contact button[type="submit"] {
+.submitButton {
   width: 100%;
   padding: 0.875rem 2rem;
   background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
@@ -83,13 +83,13 @@
   margin-top: 1rem;
 }
 
-.contact button[type="submit"]:hover {
+.submitButton:hover {
   transform: translateY(-2px) scale(1.02);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 0 6px 6px rgba(0, 0, 0, 0.1);
   background: linear-gradient(135deg, #334155 0%, #475569 100%);
 }
 
-.contact button[type="submit"]:active {
+.submitButton:active {
   transform: translateY(0) scale(1);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -105,7 +105,7 @@
     padding: 0.625rem 0.875rem;
   }
   
-  .contact button[type="submit"] {
+  .submitButton {
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
   }
@@ -121,7 +121,7 @@
     font-size: 0.9rem;
   }
   
-  .contact button[type="submit"] {
+  .submitButton {
     font-size: 0.95rem;
   }
 }

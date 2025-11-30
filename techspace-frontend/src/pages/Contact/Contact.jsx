@@ -28,37 +28,39 @@ function Contact() {
       <PageContainer>
         <PageTitle>联系我</PageTitle>
         <form onSubmit={handleSubmit}>
-          <div>
-            <label className={styles.label}>姓名：</label>
+          <div className={styles.formGroup}>
+            <label className={styles.label}>称呼：</label>
             <input
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
-              required
+              placeholder="留下你的名字吧 😊"
             />
           </div>
-          <div>
+          <div className={styles.formGroup}>
             <label className={styles.label}>邮箱：</label>
             <input
               type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
+              placeholder="我将通过这个邮箱联系你"
               required
             />
           </div>
-          <div>
+          <div className={styles.formGroup}>
             <label className={styles.label}>留言：</label>
             <textarea
               name="message"
               value={formData.message}
               onChange={handleChange}
-              rows="5"
+              rows="6"
+              placeholder="请留下您的留言..."
               required
             />
           </div>
-          <button type="submit">发送留言</button>
+          <button type="submit" className={styles.submitButton}>发送留言</button>
         </form>
       </PageContainer>  
     </Body>

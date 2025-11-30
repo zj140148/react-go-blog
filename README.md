@@ -50,8 +50,13 @@ react-go-blog/
    - 显示文章标签
 
 ## 如何运行
-
-### 启动后端服务器
+### 推荐使用Docker Compose启动开发环境
+进入项目根目录，执行以下命令启动开发环境：
+```bash
+docker compose up -d
+```
+### 分别启动后端服务器和前端开发服务器
+#### 启动后端服务器
 
 ```bash
 cd backend
@@ -61,7 +66,7 @@ go run main.go
 
 后端服务器将在 `http://localhost:5000` 上运行。
 
-### 启动前端开发服务器
+#### 启动前端开发服务器
 
 ```bash
 cd techspace-frontend
