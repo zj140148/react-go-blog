@@ -14,7 +14,7 @@ react-go-blog/
 │   ├── router/            # 路由配置
 │   ├── services/          # 业务逻辑层
 │   └── main.go            # 后端入口文件
-├── techspace-frontend/     # React前端代码
+├── frontend/     # React前端代码
 │   ├── src/
 │   │   ├── components/    # React组件
 │   │   ├── pages/         # 页面组件
@@ -74,7 +74,7 @@ npm install
 npm run dev
 ```
 
-前端开发服务器将在 `http://localhost:3002` 上运行。
+前端开发服务器将在 `http://localhost:3000` 上运行。
 
 ## 文档
 详细的前端文档请参考 [techspace-frontend/document/FRONTEND_README.md](techspace-frontend/document/FRONTEND_README.md)
@@ -103,3 +103,6 @@ npm run dev
 - 11.9 学习如何使用vite创建react项目，前端初步写了一点框架，写了导航栏的样式
 - 11.10 完善了主页home的样式，blog页面写了部分样式
 - 11.10晚 使用docker配置了开发环境，现在可以一键配置开发环境。优化了页面的结构，开始使用组件化开发，将页面拆分成多个组件，方便一键管理，减少无效复用和代码量
+- 11.30 完成了contact页面，重新设计了页面文字的样式，添加了博客详细内容的页面PageDetail并写好了页面的样式。
+   写好了PageWrapper组件，用于包裹页面内容，添加了页面过渡效果
+   

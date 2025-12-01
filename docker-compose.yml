@@ -2,11 +2,11 @@ version: "3.9"
 
 services:
   frontend:
-    build: ./techspace-frontend
+    build: ./frontend
     ports:
-      - "3002:5173"      # 前端端口映射
+      - "3000:5173"      # 前端端口映射
     volumes:
-      - ./techspace-frontend:/app  # 本地挂载，热更新
+      - ./frontend:/app  # 本地挂载，热更新
       - /app/node_modules
     environment:
       - CHOKIDAR_USEPOLLING=true
@@ -17,7 +17,7 @@ services:
   backend:
     build: ./backend
     ports:
-      - "5001:5000"      # 后端端口映射
+      - "5000:5000"      # 后端端口映射
     volumes:
       - ./backend:/app   # 本地挂载，热更新
     environment:
