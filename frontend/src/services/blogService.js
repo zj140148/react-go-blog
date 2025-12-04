@@ -19,6 +19,28 @@ export const getBlogs = async () => {
   }
 };
 
+// 分页获取博客列表
+export const getBlogsPaginated = async (page = 1, pageSize = 6) => {
+  try {
+    const params = new URLSearchParams({
+      page: page.toString(),
+      page_size: pageSize.toString()
+    });
+    
+    const response = await fetch(`${API_BASE_URL}/blogs/paginated?${params}`);
+    const data = await response.json();
+    
+    if (data.success) {
+      return data.data;
+    } else {
+      throw new Error(data.message || '获取分页博客列表失败');
+    }
+  } catch (error) {
+    console.error('获取分页博客列表错误:', error);
+    throw error;
+  }
+};
+
 // 获取博客详情
 export const getBlogById = async (id) => {
   try {

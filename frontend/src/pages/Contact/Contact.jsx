@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import styles from './Contact.module.css';
-import PageContainer from '../../components/PageContainer/PageContainer.jsx';
-import PageTitle from '../../components/PageTitle/PageTitle.jsx';
-import Body from '../../components/Body/Body.jsx';
-import PageWrapper from '../../components/PageWrapper/PageWrapper.jsx';
+import PageContainer from '../../components/Layout/PageContainer/PageContainer.jsx';
+import PageTitle from '../../components/Layout/PageTitle/PageTitle.jsx';
+import Body from '../../components/Layout/Body/Body.jsx';
+import PageWrapper from '../../components/Layout/PageWrapper/PageWrapper.jsx';
 function Contact() {
   const [formData, setFormData] = useState({
     name: '',

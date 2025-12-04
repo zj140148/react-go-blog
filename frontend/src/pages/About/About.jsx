@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import styles from './About.module.css';
-import PageContainer from '../../components/PageContainer/PageContainer.jsx';
-import PageTitle from '../../components/PageTitle/PageTitle.jsx';
-import MdCard from '../../components/mdCard/mdCard.jsx';
-import PageWrapper from '../../components/PageWrapper/PageWrapper.jsx';
+import PageContainer from '../../components/Layout/PageContainer/PageContainer.jsx';
+import PageTitle from '../../components/Layout/PageTitle/PageTitle.jsx';
+import MdCard from '../../components/About/mdCard/mdCard.jsx';
+import PageWrapper from '../../components/Layout/PageWrapper/PageWrapper.jsx';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api';
 function About() {

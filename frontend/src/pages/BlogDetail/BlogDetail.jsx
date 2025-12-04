@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './BlogDetail.module.css';
-import PageContainer from '../../components/PageContainer/PageContainer.jsx';
-import PageTitle from '../../components/PageTitle/PageTitle.jsx';
-import Body from '../../components/Body/Body.jsx';
+import PageContainer from '../../components/Layout/PageContainer/PageContainer.jsx';
+import PageTitle from '../../components/Layout/PageTitle/PageTitle.jsx';
+import Body from '../../components/Layout/Body/Body.jsx';
 import { getBlogById } from '../../services/blogService.js';
-import PageWrapper from '../../components/PageWrapper/PageWrapper.jsx';
+import PageWrapper from '../../components/Layout/PageWrapper/PageWrapper.jsx';
 
 function BlogDetail() {
   const { id } = useParams();

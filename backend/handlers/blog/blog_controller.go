@@ -47,6 +47,51 @@ func (ctrl *BlogController) GetBlogs(c *gin.Context) {
 	})
 }
 
+// GetBlogsPaginated 分页获取博客列表
+// @Summary 分页获取博客列表
+// @Description 分页获取已发布的博客列表，支持页码和每页数量参数
+// @Tags 博客
+// @Accept json
+// @Produce json
+// @Param page query int false "页码，默认为1" default(1)
+// @Param page_size query int false "每页数量，默认为6" default(6)
+// @Success 200 {object} models.BlogListResponse
+// @Failure 500 {object} models.ErrorResponse
+// @Router /api/blogs/paginated [get]
+func (ctrl *BlogController) GetBlogsPaginated(c *gin.Context) {
+	// 获取查询参数
+	pageStr := c.DefaultQuery("page", "1")
+	pageSizeStr := c.DefaultQuery("page_size", "6")
+
+	// 转换参数
+	page, err := strconv.Atoi(pageStr)
+	if err != nil || page < 1 {
+		page = 1
+	}
+
+	pageSize, err := strconv.Atoi(pageSizeStr)
+	if err != nil || pageSize < 1 {
+		pageSize = 6
+	}
+
+	// 调用服务层获取分页数据
+	response, err := ctrl.blogService.GetBlogsPaginated(page, pageSize)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"success": false,
+			"message": "获取分页博客列表失败",
+			"error":   err.Error(),
+		})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{
+		"success": true,
+		"message": "获取分页博客列表成功",
+		"data":    response,
+	})
+}
+
 // GetBlogByID 根据ID获取博客详情
 // @Summary 获取博客详情
 // @Description 根据ID获取博客的完整内容，包括标题、内容、作者等信息

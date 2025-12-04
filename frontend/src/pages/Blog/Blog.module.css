@@ -23,44 +23,75 @@
   gap: 2rem;
   width: 100%;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-}
-
-.card {
-  background: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  padding: 4rem;
-  margin-bottom: 2rem;
-  border: 1px solid #e5e7eb;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  text-align: left;         /* 卡片内文字左对齐 */
+  grid-auto-rows: 1fr;       /* 使所有网格行高度一致 */
 }
 
 
 
 
-.cardTitle {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #111827;
-  margin-bottom: 1rem;
-}
 
-.cardContent {
-  color: #4b5563;
-  line-height: 1.7;
+
+
+
+
+
+
+/* 统计信息样式 */
+.stats {
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.9rem;
   margin-bottom: 1.5rem;
-  font-size: 1rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
-.blogLink {
-  text-decoration: none;
-  color: inherit;
+/* 空状态样式 */
+.emptyState {
+  text-align: center;
+  color: #6b7280;
+  font-size: 1.1rem;
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  margin-top: 2rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
-.blogLink:hover .card {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    grid-auto-rows: auto;     /* 移动端允许自适应高度 */
+  }
+  
+  .stats {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .emptyState {
+    font-size: 1rem;
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .blog {
+    padding: 1rem 0;
+  }
+  
+  .grid {
+    gap: 1rem;
+  }
+  
+  .stats {
+    font-size: 0.75rem;
+    padding: 0.5rem;
+  }
 }

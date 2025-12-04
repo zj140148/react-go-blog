@@ -11,6 +11,7 @@ import (
 // BlogService 博客服务接口
 type BlogService interface {
 	GetAllBlogs() ([]models.BlogListItem, error)
+	GetBlogsPaginated(page, pageSize int) (*models.BlogListResponse, error)
 	GetBlogByID(id int) (*models.Blog, error)
 }
 
@@ -62,6 +63,72 @@ func NewBlogService() BlogService {
 			CreatedAt:   time.Now().AddDate(0, 0, -3),
 			UpdatedAt:   time.Now().AddDate(0, 0, -2),
 		},
+		// 添加更多测试数据以支持分页
+		{
+			ID:          4,
+			Title:       "Vue.js 3.0 新特性详解",
+			Summary:     "详细介绍Vue.js 3.0的新特性，包括Composition API、性能优化、TypeScript支持等。",
+			Content:     "# Vue.js 3.0 新特性详解\n\nVue.js 3.0带来了许多激动人心的新特性，本文将详细介绍这些变化。\n\n## 1. Composition API\n\nComposition API是Vue 3.0最重要的新特性之一，它提供了更灵活的代码组织方式。\n\n```javascript\nimport { ref, computed } from 'vue'\n\nexport default {\n  setup() {\n    const count = ref(0)\n    const doubled = computed(() => count.value * 2)\n    \n    return { count, doubled }\n  }\n}\n```\n\n## 2. 性能优化\n\nVue 3.0在性能方面有了显著提升：\n- 更小的包体积\n- 更快的渲染速度\n- 更好的内存管理\n\n## 3. TypeScript支持\n\nVue 3.0对TypeScript提供了更好的支持，让类型安全更加完善。\n\n## 4. 总结\n\nVue.js 3.0的新特性让开发体验更加优秀，值得学习和使用。",
+			Author:      "赵六",
+			CoverImage:  "/images/vue-bg.jpg",
+			Tags:        []string{"Vue.js", "前端", "JavaScript"},
+			ViewCount:   89,
+			IsPublished: true,
+			CreatedAt:   time.Now().AddDate(0, 0, -2),
+			UpdatedAt:   time.Now().AddDate(0, 0, -2),
+		},
+		{
+			ID:          5,
+			Title:       "Docker容器化部署实践",
+			Summary:     "介绍如何使用Docker进行应用容器化部署，包括Dockerfile编写、镜像优化等内容。",
+			Content:     "# Docker容器化部署实践\n\nDocker已经成为现代应用部署的标准工具，本文将分享Docker部署的最佳实践。\n\n## 1. Docker基础\n\nDocker是一个开源的容器化平台，它允许开发者将应用及其依赖打包到轻量级容器中。\n\n## 2. Dockerfile最佳实践\n\n```dockerfile\nFROM node:16-alpine\nWORKDIR /app\nCOPY package*.json ./\nRUN npm ci --only=production\nCOPY . .\nEXPOSE 3000\nCMD [\"npm\", \"start\"]\n```\n\n## 3. 镜像优化\n\n- 使用多阶段构建\n- 选择合适的基础镜像\n- 减少镜像层数\n\n## 4. 总结\n\nDocker容器化部署能够提高应用的可移植性和一致性，是现代DevOps的重要工具。",
+			Author:      "钱七",
+			CoverImage:  "/images/docker-bg.jpg",
+			Tags:        []string{"Docker", "DevOps", "部署"},
+			ViewCount:   112,
+			IsPublished: true,
+			CreatedAt:   time.Now().AddDate(0, 0, -1),
+			UpdatedAt:   time.Now().AddDate(0, 0, -1),
+		},
+		{
+			ID:          6,
+			Title:       "TypeScript进阶技巧",
+			Summary:     "分享TypeScript的高级用法和最佳实践，包括泛型、装饰器、高级类型等。",
+			Content:     "# TypeScript进阶技巧\n\nTypeScript为JavaScript添加了类型系统，本文将介绍一些进阶技巧。\n\n## 1. 泛型编程\n\n泛型让我们能够编写可重用的类型安全代码：\n\n```typescript\nfunction identity<T>(arg: T): T {\n  return arg\n}\n\ninterface GenericIdentityFn<T> {\n  (arg: T): T\n}\n```\n\n## 2. 高级类型\n\nTypeScript提供了许多高级类型特性：\n- 联合类型和交叉类型\n- 条件类型\n- 映射类型\n\n## 3. 装饰器\n\n装饰器是一种特殊类型的声明，可以用来修改类和行为。\n\n## 4. 总结\n\n掌握TypeScript的进阶技巧能够让我们编写更加健壮和可维护的代码。",
+			Author:      "孙八",
+			CoverImage:  "/images/typescript-bg.jpg",
+			Tags:        []string{"TypeScript", "前端", "JavaScript"},
+			ViewCount:   76,
+			IsPublished: true,
+			CreatedAt:   time.Now().AddDate(0, 0, -4),
+			UpdatedAt:   time.Now().AddDate(0, 0, -4),
+		},
+		{
+			ID:          7,
+			Title:       "微服务架构设计原则",
+			Summary:     "探讨微服务架构的设计原则和最佳实践，包括服务拆分、通信机制、数据一致性等。",
+			Content:     "# 微服务架构设计原则\n\n微服务架构已经成为现代应用开发的主流模式，本文将探讨其设计原则。\n\n## 1. 服务拆分原则\n\n- 单一职责原则\n- 业务边界清晰\n- 数据自治\n\n## 2. 服务通信\n\n- 同步通信：REST API、gRPC\n- 异步通信：消息队列、事件驱动\n\n## 3. 数据一致性\n\n- 最终一致性\n- 分布式事务\n- 事件溯源\n\n## 4. 总结\n\n微服务架构能够提高系统的可扩展性和可维护性，但需要合理的设计和实施。",
+			Author:      "周九",
+			CoverImage:  "/images/microservices-bg.jpg",
+			Tags:        []string{"微服务", "架构", "后端"},
+			ViewCount:   134,
+			IsPublished: true,
+			CreatedAt:   time.Now().AddDate(0, 0, -6),
+			UpdatedAt:   time.Now().AddDate(0, 0, -6),
+		},
+		{
+			ID:          8,
+			Title:       "前端性能优化实战",
+			Summary:     "分享前端性能优化的实战经验，包括代码分割、懒加载、缓存策略等技巧。",
+			Content:     "# 前端性能优化实战\n\n前端性能优化是提升用户体验的关键，本文将分享一些实用的优化技巧。\n\n## 1. 代码分割\n\n使用动态导入实现代码分割：\n\n```javascript\nconst LazyComponent = React.lazy(() => import('./LazyComponent'))\n\nfunction App() {\n  return (\n    <Suspense fallback={<div>Loading...</div>}>\n      <LazyComponent />\n    </Suspense>\n  )\n}\n```\n\n## 2. 图片优化\n\n- 使用现代图片格式\n- 实现懒加载\n- 响应式图片\n\n## 3. 缓存策略\n\n- 浏览器缓存\n- CDN缓存\n- Service Worker\n\n## 4. 总结\n\n前端性能优化需要综合考虑多个方面，通过合理的优化策略可以显著提升用户体验。",
+			Author:      "吴十",
+			CoverImage:  "/images/performance-bg.jpg",
+			Tags:        []string{"性能优化", "前端", "最佳实践"},
+			ViewCount:   98,
+			IsPublished: true,
+			CreatedAt:   time.Now().AddDate(0, 0, -8),
+			UpdatedAt:   time.Now().AddDate(0, 0, -8),
+		},
 	}
 
 	return &blogService{
@@ -76,14 +143,14 @@ func (s *blogService) GetAllBlogs() ([]models.BlogListItem, error) {
 	for _, blog := range s.blogs {
 		if blog.IsPublished {
 			blogList = append(blogList, models.BlogListItem{
-				ID:          blog.ID,
-				Title:       blog.Title,
-				Summary:     blog.Summary,
-				Author:      blog.Author,
-				CoverImage:  blog.CoverImage,
-				Tags:        blog.Tags,
-				ViewCount:   blog.ViewCount,
-				CreatedAt:   blog.CreatedAt,
+				ID:         blog.ID,
+				Title:      blog.Title,
+				Summary:    blog.Summary,
+				Author:     blog.Author,
+				CoverImage: blog.CoverImage,
+				Tags:       blog.Tags,
+				ViewCount:  blog.ViewCount,
+				CreatedAt:  blog.CreatedAt,
 			})
 		}
 	}
@@ -94,6 +161,56 @@ func (s *blogService) GetAllBlogs() ([]models.BlogListItem, error) {
 	})
 
 	return blogList, nil
+}
+
+// GetBlogsPaginated 分页获取博客列表
+func (s *blogService) GetBlogsPaginated(page, pageSize int) (*models.BlogListResponse, error) {
+	// 参数验证
+	if page < 1 {
+		page = 1
+	}
+	if pageSize < 1 {
+		pageSize = 6 // 默认每页6条
+	}
+
+	// 获取所有已发布的博客
+	allBlogs, err := s.GetAllBlogs()
+	if err != nil {
+		return nil, err
+	}
+
+	total := len(allBlogs)
+	totalPages := (total + pageSize - 1) / pageSize // 向上取整
+
+	// 计算分页范围
+	start := (page - 1) * pageSize
+	end := start + pageSize
+
+	// 防止越界
+	if start >= total {
+		return &models.BlogListResponse{
+			Data:       []models.BlogListItem{},
+			Total:      total,
+			Page:       page,
+			PageSize:   pageSize,
+			TotalPages: totalPages,
+		}, nil
+	}
+
+	if end > total {
+		end = total
+	}
+
+	// 获取当前页数据
+	pagedBlogs := allBlogs[start:end]
+
+	return &models.BlogListResponse{
+		Data:       pagedBlogs,
+		Total:      total,
+		Page:       page,
+		PageSize:   pageSize,
+		TotalPages: totalPages,
+	}, nil
 }
 
 // GetBlogByID 根据ID获取博客详情

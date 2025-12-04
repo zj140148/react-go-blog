@@ -10,6 +10,9 @@
   outline: none;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  height: 70%;             /* 使卡片填满网格容器高度 */
+  display: flex;            /* 使用 flexbox 进行内部布局 */
+  flex-direction: column;   /* 垂直排列内容 */
 }
 
 .Card:hover {
@@ -31,6 +34,12 @@
 .CardContent {
   color: #e2e8f0;
   line-height: 1.7;
+  flex: 1;                  /* 让内容区域占用剩余空间 */
+  display: -webkit-box; 
+  line-clamp: 3;     /* 使用 -webkit-box 实现多行文本截断 */
+  -webkit-line-clamp: 3;     /* 限制显示最多3行 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;          /* 隐藏超出内容 */
 }
 
 .CardContent p {

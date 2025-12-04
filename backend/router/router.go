@@ -3,6 +3,7 @@ package router
 import (
 	"backend/handlers/about"
 	"backend/handlers/blog"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -19,16 +20,17 @@ func SetupRouter() *gin.Engine {
 		}
 		c.Next()
 	})
-	
+
 	// About MD 接口
 	r.GET("/api/about-md", about.GetAboutMD)
-	
+
 	// 博客相关接口
 	blogController := blog.NewBlogController()
 	blogGroup := r.Group("/api/blogs")
 	{
-		blogGroup.GET("", blogController.GetBlogs)       // 获取博客列表
-		blogGroup.GET("/:id", blogController.GetBlogByID) // 获取博客详情
+		blogGroup.GET("", blogController.GetBlogs)                    // 获取博客列表
+		blogGroup.GET("/paginated", blogController.GetBlogsPaginated) // 分页获取博客列表
+		blogGroup.GET("/:id", blogController.GetBlogByID)             // 获取博客详情
 	}
 
 	return r

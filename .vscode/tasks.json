@@ -1,0 +1,37 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Backend",
+      "type": "shell",
+      "command": "cd ./backend ; go run main.go", // 或者使用 air 进行热重载
+      "presentation": {
+        "group": "run",
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Run Frontend",
+      "type": "shell",
+      "command": "npm run dev",
+      "options": {
+        "cwd": "${workspaceFolder}/frontend" // 指定在 frontend 目录下运行
+      },
+      "presentation": {
+        "group": "run",
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Start All",
+      "dependsOn": ["Run Backend", "Run Frontend"], // 同时依赖上面两个任务
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    }
+  ]
+}

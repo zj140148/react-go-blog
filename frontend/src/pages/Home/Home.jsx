@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './Home.module.css';
-import PageContainer from '../../components/PageContainer/PageContainer.jsx';
-import PageTitle from '../../components/PageTitle/PageTitle.jsx';
-import Body from '../../components/Body/Body.jsx';
-import Card from '../../components/Card/Card.jsx';
+import PageContainer from '../../components/Layout/PageContainer/PageContainer.jsx';
+import PageTitle from '../../components/Layout/PageTitle/PageTitle.jsx';
+import Body from '../../components/Layout/Body/Body.jsx';
+import Card from '../../components/Blog/Card/Card.jsx';
 import { Link } from 'react-router-dom';
-import PageWrapper from '../../components/PageWrapper/PageWrapper.jsx';
+import PageWrapper from '../../components/Layout/PageWrapper/PageWrapper.jsx';
 function Home() {
   return (
     <PageWrapper>

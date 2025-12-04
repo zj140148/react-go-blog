@@ -28,3 +28,21 @@ type BlogListItem struct {
 	ViewCount   int       `json:"view_count"`  // 浏览次数
 	CreatedAt   time.Time `json:"created_at"`  // 创建时间
 }
+
+// PaginationResponse 分页响应模型
+type PaginationResponse struct {
+	Data       interface{} `json:"data"`        // 数据列表
+	Total      int         `json:"total"`       // 总记录数
+	Page       int         `json:"page"`        // 当前页码
+	PageSize   int         `json:"page_size"`   // 每页大小
+	TotalPages int         `json:"total_pages"` // 总页数
+}
+
+// BlogListResponse 博客列表分页响应
+type BlogListResponse struct {
+	Data       []BlogListItem `json:"data"`        // 博客列表数据
+	Total      int            `json:"total"`       // 总记录数
+	Page       int            `json:"page"`        // 当前页码
+	PageSize   int            `json:"page_size"`   // 每页大小
+	TotalPages int            `json:"total_pages"` // 总页数
+}
