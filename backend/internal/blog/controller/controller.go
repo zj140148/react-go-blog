@@ -1,7 +1,7 @@
-package blog
+package controller
 
 import (
-	"backend/services"
+	"backend/internal/blog/service"
 	"net/http"
 	"strconv"
 
@@ -10,13 +10,13 @@ import (
 
 // BlogController 博客控制器
 type BlogController struct {
-	blogService services.BlogService
+	blogService service.BlogService
 }
 
 // NewBlogController 创建博客控制器实例
 func NewBlogController() *BlogController {
 	return &BlogController{
-		blogService: services.NewBlogService(),
+		blogService: service.NewBlogService(),
 	}
 }
 

@@ -1,10 +1,17 @@
 package main
 
 import (
-    "backend/router"
+	"backend/internal/app"
 )
 
 func main() {
-    r := router.SetupRouter()
-    r.Run(":5000")
+	// 创建应用实例
+	application := app.NewApp()
+
+	// 初始化应用（中间件、路由等）
+	application.Initialize()
+
+	// 获取引擎并启动服务
+	engine := application.GetEngine()
+	engine.Run(":5000")
 }

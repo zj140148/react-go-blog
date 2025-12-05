@@ -13,9 +13,18 @@ function About() {
 
   useEffect(() => {
     fetch(API_BASE_URL + '/about-md') // 后端接口
-      .then(res => res.text())
-      .then(text => setMdContent(text))
-      .catch(err => console.error('Failed to fetch markdown:', err));
+      .then(res => res.json())
+      .then(data => {
+        if (data.success && data.data && data.data.content) {
+          setMdContent(data.data.content);
+        } else {
+          setMdContent('加载失败');
+        }
+      })
+      .catch(err => {
+        console.error('Failed to fetch markdown:', err);
+        setMdContent('加载失败');
+      });
   }, []);
 
   return (
